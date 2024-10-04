@@ -18,7 +18,14 @@ model User {
   name      String?  @db.VarChar(255)
   email     String   @unique @db.VarChar(255)
   password  String
+  role      Role     @default(USER)
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("users")
+}
+
+enum Role {
+  USER
+  CREATOR
+  ADMIN
 }
