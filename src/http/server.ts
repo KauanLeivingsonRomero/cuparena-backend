@@ -5,12 +5,19 @@ import type { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { loginSchema, registerSchema } from "../schema";
 import z from "zod";
+import cors from "cors"
 
 const app = express();
 const jwt = jsonWebToken;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+
+app.get("/", (req, res) => {
+  res.status(200).json({message: "Hello world"})
+})
+
 
 app.post("/register", async (req: Request, res: Response) => { 
   try {
@@ -99,5 +106,5 @@ app.post("/login", async (req: Request, res: Response) => {
 });
 
 app.listen(3333, () => {
-  console.log("Server running!");
+  console.log("Server running at port 3333");
 });
