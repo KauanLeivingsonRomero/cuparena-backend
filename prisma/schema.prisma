@@ -14,7 +14,7 @@ model User {
   password       String
   role           Role     @default(USER)
   createdAt      DateTime @default(now()) @map("created_at")
-  profilePicture String?  @map("profile_picture")
+  profilePicture String?  @map("profile_picture") @default("https://res.cloudinary.com/dyy3xczzw/image/upload/v1728680666/user-icon_xkcbjw.png")
 
   @@map("users")
 }

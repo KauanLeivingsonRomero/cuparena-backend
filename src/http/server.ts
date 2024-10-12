@@ -91,7 +91,7 @@ app.post("/login", async (req: Request, res: Response) => {
      res.json({
       message: "Login efetuado com sucesso.",
       token,
-      user: { id: user.user_id, name: user.name, email: user.email }
+      user
     });
     return
   } catch (error) {
